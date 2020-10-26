@@ -49,9 +49,9 @@ function getVariants() {
       exportLines = [`module.exports = require('./${name}')`]
     }
     const number = getExtraCreditNumberFromFilename(base)
-    const master = path.join(dir, name.replace(/\..*$/, ext))
+    const main = path.join(dir, name.replace(/\..*$/, ext))
 
-    filesByMaster[master] = filesByMaster[master] || {extras: []}
+    filesByMaster[main] = filesByMaster[main] || {extras: []}
 
     const info = {
       exportLines,
@@ -60,32 +60,34 @@ function getVariants() {
       file,
     }
 
-    if (base.includes('.final')) filesByMaster[master].final = info
-    if (base.includes('.exercise')) filesByMaster[master].exercise = info
-    if (base.includes('.extra')) filesByMaster[master].extras.push(info)
+    if (base.includes('.final')) filesByMaster[main].final = info
+    if (base.includes('.exercise')) filesByMaster[main].exercise = info
+    if (base.includes('.extra')) filesByMaster[main].extras.push(info)
   }
   return filesByMaster
 }
 
 function getExerciseBranches() {
   const branches = spawnSync(
-    `git for-each-ref --format='%(refname:short)'`,
+    `git for-each-ref --format="%(refname:short)"`,
   ).split('\n')
-  return branches.filter(b => b.startsWith('exercises/'))
+  return branches
+    .filter(b => b.startsWith('origin/exercises/'))
+    .map(b => b.replace('origin/', ''))
 }
 
 function updateExerciseBranch(branch) {
-  const masterCommit = spawnSync('git rev-parse master')
+  const mainCommit = spawnSync('git rev-parse main')
   spawnSync(`git checkout ${branch}`)
   const exerciseCommit = spawnSync(`git rev-parse ${branch}`)
   const parentCommit = spawnSync(`git rev-parse ${branch}^`)
-  if (masterCommit === parentCommit) {
+  if (mainCommit === parentCommit) {
     return false
   }
   console.log(
     `> The ${branch} exercise commit SHA: ${exerciseCommit} (save this in case something goes wrong).`,
   )
-  spawnSync(`git reset --hard master`)
+  spawnSync(`git reset --hard main`)
   try {
     const result = spawnSync(
       `git cherry-pick ${exerciseCommit} --strategy-option theirs`,

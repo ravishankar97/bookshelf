@@ -145,6 +145,88 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "kodyclemens",
+      "name": "Kody Clemens",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/43357615?v=4",
+      "profile": "https://kodyclemens.com",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "calec",
+      "name": "calec",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/12165290?v=4",
+      "profile": "http://cale.xyz",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "emzoumpo",
+      "name": "Emmanouil Zoumpoulakis",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/2103443?v=4",
+      "profile": "https://github.com/emzoumpo",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "milamer",
+      "name": "Christian Schurr",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/12884134?v=4",
+      "profile": "https://github.com/milamer",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "b2m9",
+      "name": "Bob Massarczyk",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/8492232?v=4",
+      "profile": "http://www.b2m9.com",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "deepak-chandani",
+      "name": "Deepak Chandani",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/15975603?v=4",
+      "profile": "https://radiant-sands-51546.herokuapp.com/profile/deepak.chandani",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "frontendwizard",
+      "name": "Juliano Farias",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/1124448?v=4",
+      "profile": "http://frontendwizard.dev",
+      "contributions": [
+        "test"
+      ]
+    },
+    {
+      "login": "RobbertWolfs",
+      "name": "Robbert Wolfs",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/12511178?v=4",
+      "profile": "https://github.com/RobbertWolfs",
+      "contributions": [
+        "doc",
+        "code"
+      ]
+    },
+    {
+      "login": "komisz",
+      "name": "komisz",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/45998348?v=4",
+      "profile": "https://github.com/komisz",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,

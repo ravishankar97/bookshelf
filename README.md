@@ -32,14 +32,14 @@
 ## Prerequisites
 
 - You'll want experience with React before going through this material. The
-  lessons get progressively more advanced. Once you hit something your
-  unfamiliar with, that's you queue to go back and review the other parts of
+  lessons get progressively more advanced. Once you hit something you're
+  unfamiliar with, that's your cue to go back and review the other parts of
   EpicReact.Dev.
 
 ## System Requirements
 
-- [git][git] v2 or greater
-- [NodeJS][node] v10 or greater
+- [git][git] v2.13 or greater
+- [NodeJS][node] `^10.13 || 12 || 14`
 - [npm][npm] v6 or greater
 
 All of these must be available in your `PATH`. To verify things are set up
@@ -57,23 +57,39 @@ variable and how to fix it here for [windows][win-path] or
 
 ## Setup
 
+> If you want to commit and push your work as you go, you'll want to
+> [fork](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/fork-a-repo)
+> first and then clone your fork rather than this repo directly.
+
 After you've made sure to have the correct things (and versions) installed, you
 should be able to just run a few commands to get set up:
 
 ```
 git clone https://github.com/kentcdodds/bookshelf.git
 cd bookshelf
-npm run setup --silent
+node setup
 ```
 
-This may take a few minutes. **It will ask you for your email.** This is
-optional and just automatically adds your email to the links in the project to
-make filling out some forms easier.
+This may take a few minutes.
 
 If you get any errors, please read through them and see if you can find out what
 the problem is. If you can't work it out on your own then please [file an
 issue][issue] and provide _all_ the output from the commands you ran (even if
 it's a lot).
+
+If you can't get the setup script to work, then just make sure you have the
+right versions of the requirements listed above, and run the following commands:
+
+```
+npm install
+npm run validate
+```
+
+It's recommended you run everything locally in the same environment you work in
+every day, but if you're having issues getting things set up, you can also set
+this up using [GitHub Codespaces](https://github.com/features/codespaces)
+([video demo](https://www.youtube.com/watch?v=gCoVJm3hGk4)) or
+[Codesandbox](https://codesandbox.io/s/github/kentcdodds/bookshelf).
 
 ## Running the app
 
@@ -110,7 +126,7 @@ node go
 ```
 
 This will allow you to choose which exercise you want to work on. From there,
-open the `INSTRUCTIONS.md` file and follow the instructions there.
+open the `INSTRUCTIONS.md` file and follow the instructions.
 
 If you'd like to work on an extra credit, but you want to skip the preceding
 steps, you can run `node go` again:
@@ -138,8 +154,8 @@ _I_ walk through the material.
 Each exercise has comments in it to help you get through the exercise. These fun
 emoji characters are here to help you.
 
-- **Kody the Koala Bear** 🐨 will tell you when there's something specific you
-  should do
+- **Kody the Koala** 🐨 will tell you when there's something specific you should
+  do
 - **Matthew the Muscle** 💪 will indicate what you're working with an exercise
 - **Chuck the Checkered Flag** 🏁 will indicate that you're working with a final
   version
@@ -206,6 +222,41 @@ window.__bookshelf.purgeListItems()
   - publisher: string
   - synopsis: string
 
+## Troubleshooting
+
+<details>
+  
+  <summary>Running "node go" does not list any branches</summary>
+  
+This means there was something wrong when you ran the setup. Try running:
+
+```
+node ./scripts/track-branches.js
+```
+
+If you're still not getting the branches, then you can do this manually:
+
+```
+git branch --track "exercises/01-bootstrap" "origin/exercises/01-bootstrap"
+git branch --track "exercises/02-styles" "origin/exercises/02-styles"
+git branch --track "exercises/03-data-fetching" "origin/exercises/03-data-fetching"
+git branch --track "exercises/04-authentication" "origin/exercises/04-authentication"
+git branch --track "exercises/05-routing" "origin/exercises/05-routing"
+git branch --track "exercises/06-cache-management" "origin/exercises/06-cache-management"
+git branch --track "exercises/07-context" "origin/exercises/07-context"
+git branch --track "exercises/08-compound-components" "origin/exercises/08-compound-components"
+git branch --track "exercises/09-performance" "origin/exercises/09-performance"
+git branch --track "exercises/10-render-as-you-fetch" "origin/exercises/10-render-as-you-fetch"
+git branch --track "exercises/11-unit-testing" "origin/exercises/11-unit-testing"
+git branch --track "exercises/12-testing-hooks-and-components" "origin/exercises/12-testing-hooks-and-components"
+git branch --track "exercises/13-integration-testing" "origin/exercises/13-integration-testing"
+git branch --track "exercises/14-e2e-testing" "origin/exercises/14-e2e-testing"
+
+git pull --all
+```
+
+</details>
+
 ## Contributors
 
 Thanks goes to these wonderful people
@@ -235,12 +286,22 @@ Thanks goes to these wonderful people
   </tr>
   <tr>
     <td align="center"><a href="https://gabrielabud.com"><img src="https://avatars3.githubusercontent.com/u/7684770?v=4" width="100px;" alt=""/><br /><sub><b>Gabriel Abud</b></sub></a><br /><a href="https://github.com/kentcdodds/bookshelf/commits?author=Buuntu" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://kodyclemens.com"><img src="https://avatars0.githubusercontent.com/u/43357615?v=4" width="100px;" alt=""/><br /><sub><b>Kody Clemens</b></sub></a><br /><a href="https://github.com/kentcdodds/bookshelf/commits?author=kodyclemens" title="Documentation">📖</a></td>
+    <td align="center"><a href="http://cale.xyz"><img src="https://avatars3.githubusercontent.com/u/12165290?v=4" width="100px;" alt=""/><br /><sub><b>calec</b></sub></a><br /><a href="https://github.com/kentcdodds/bookshelf/commits?author=calec" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/emzoumpo"><img src="https://avatars2.githubusercontent.com/u/2103443?v=4" width="100px;" alt=""/><br /><sub><b>Emmanouil Zoumpoulakis</b></sub></a><br /><a href="https://github.com/kentcdodds/bookshelf/commits?author=emzoumpo" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/milamer"><img src="https://avatars2.githubusercontent.com/u/12884134?v=4" width="100px;" alt=""/><br /><sub><b>Christian Schurr</b></sub></a><br /><a href="https://github.com/kentcdodds/bookshelf/commits?author=milamer" title="Code">💻</a></td>
+    <td align="center"><a href="http://www.b2m9.com"><img src="https://avatars1.githubusercontent.com/u/8492232?v=4" width="100px;" alt=""/><br /><sub><b>Bob Massarczyk</b></sub></a><br /><a href="https://github.com/kentcdodds/bookshelf/commits?author=b2m9" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://radiant-sands-51546.herokuapp.com/profile/deepak.chandani"><img src="https://avatars0.githubusercontent.com/u/15975603?v=4" width="100px;" alt=""/><br /><sub><b>Deepak Chandani</b></sub></a><br /><a href="https://github.com/kentcdodds/bookshelf/commits?author=deepak-chandani" title="Code">💻</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="http://frontendwizard.dev"><img src="https://avatars1.githubusercontent.com/u/1124448?v=4" width="100px;" alt=""/><br /><sub><b>Juliano Farias</b></sub></a><br /><a href="https://github.com/kentcdodds/bookshelf/commits?author=frontendwizard" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://github.com/RobbertWolfs"><img src="https://avatars2.githubusercontent.com/u/12511178?v=4" width="100px;" alt=""/><br /><sub><b>Robbert Wolfs</b></sub></a><br /><a href="https://github.com/kentcdodds/bookshelf/commits?author=RobbertWolfs" title="Documentation">📖</a> <a href="https://github.com/kentcdodds/bookshelf/commits?author=RobbertWolfs" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/komisz"><img src="https://avatars3.githubusercontent.com/u/45998348?v=4" width="100px;" alt=""/><br /><sub><b>komisz</b></sub></a><br /><a href="https://github.com/kentcdodds/bookshelf/issues?q=author%3Akomisz" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
-
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the
@@ -265,11 +326,11 @@ Thank you!
 [node]: https://nodejs.org
 [git]: https://git-scm.com/
 [build-badge]: https://img.shields.io/travis/kentcdodds/bookshelf.svg?style=flat-square&logo=travis
-[build]: https://travis-ci.org/kentcdodds/bookshelf
+[build]: https://travis-ci.com/kentcdodds/bookshelf
 [license-badge]: https://img.shields.io/badge/license-GPL%203.0%20License-blue.svg?style=flat-square
-[license]: https://github.com/kentcdodds/bookshelf/blob/master/LICENSE
+[license]: https://github.com/kentcdodds/bookshelf/blob/main/LICENSE
 [coc-badge]: https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square
-[coc]: https://github.com/kentcdodds/bookshelf/blob/master/CODE_OF_CONDUCT.md
+[coc]: https://github.com/kentcdodds/bookshelf/blob/main/CODE_OF_CONDUCT.md
 [emojis]: https://github.com/kentcdodds/all-contributors#emoji-key
 [all-contributors]: https://github.com/kentcdodds/all-contributors
 [win-path]: https://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/
